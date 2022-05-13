@@ -1,0 +1,43 @@
+{
+    "name": "Focus Planet",
+    "version": "0.1",
+    "description": "Helps to focus ",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": [
+            "https://*/*"
+        ],
+        "js": [
+            "runOnPage.js"
+        ]
+    }],
+    "permissions": [
+        "declarativeContent",
+        "activeTab",
+        "tabs",
+        "storage"
+    ],
+    "icons": {
+        "16": "Images/16.png",
+        "32": "Images/32.png",
+        "48": "Images/48.png",
+        "128": "Images/128.png"
+    },
+    "web_accessible_resources": [{
+        "resources": [
+            "popup.html",
+            "PleaseDontOpen.html",
+            "Images/notpass.jpg"
+        ],
+        "matches": [
+            "https://*/*"
+        ]
+    }],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Add or remove website"
+    },
+    "manifest_version": 3
+}
