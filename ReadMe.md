@@ -11,3 +11,7 @@ A small chrome extension to boost your focus during time periods like the work d
 - Avoid going into work websites during your holidays.  
 
 And more to come!
+
+# How to use
+
+![Focus Planet explenation](https://user-images.githubusercontent.com/4838211/178327585-b3f6dbd7-513c-4dc5-aad1-554b26fb3d23.png)
