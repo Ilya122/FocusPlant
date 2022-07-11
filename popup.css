@@ -1,0 +1,73 @@
+body {
+    width: 200px;
+    background: yellowgreen;
+}
+
+.icon-image {
+    width: 16px;
+    height: 16px;
+    border: none;
+}
+
+.button-red {
+    background: rgb(202, 60, 60);
+}
+
+.button-blue {
+    background: rgb(66, 184, 221);
+}
+
+.animate_page1 {
+    animation: AnimationPageOne 0.5s ease;
+}
+
+@keyframes AnimationPageOne {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate_page2 {
+    animation: AnimationPageTwo 0.5s ease;
+}
+
+@keyframes AnimationPageTwo {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.weekDays-selector input {
+    display: none!important;
+}
+
+.weekDays-selector input[type=checkbox]+label {
+    display: inline-block;
+    border-radius: 6px;
+    background: #dddddd;
+    height: 20px;
+    width: 15px;
+    margin-right: 2px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.weekDays-selector input[type=checkbox]:checked+label {
+    background: #2AD705;
+    color: #ffffff;
+}
+
+.content-card-container {
+    display: grid;
+    grid-template-columns: 40px 40px 100px;
+    grid-auto-rows: auto;
+    grid-column-gap: 3px;
+    grid-row-gap: 5px;
+}

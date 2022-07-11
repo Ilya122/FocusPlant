@@ -10,6 +10,7 @@
             "https://*/*"
         ],
         "js": [
+            "base.js",
             "runOnPage.js"
         ]
     }],
@@ -26,10 +27,20 @@
         "128": "Images/128.png"
     },
     "web_accessible_resources": [{
+        "js": [
+            "moment.min.js",
+            "JS/fontAwesome.js"
+        ],
+        "css": [
+            "css/pure-min.css"
+        ],
         "resources": [
             "popup.html",
             "PleaseDontOpen.html",
-            "Images/notpass.jpg"
+            "Images/notpass.jpg",
+            "Images/iconConfigure.png",
+            "Images/iconRemove.png",
+            "Images/logoAnim.gif"
         ],
         "matches": [
             "https://*/*"

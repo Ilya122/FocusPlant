@@ -2,16 +2,104 @@
 
 <head>
     <title>Water Popup</title>
+    <link rel="stylesheet" href="popup.css">
+
 </head>
 
-<body style="width:200px;">
-    <img src="./Images/64.png" id="hydrateImage">
-    <h1>Sites</h1>
-    <ul id="allSites" style="list-style: none;">
-    </ul>
-    <button id="adder">Add website</button>
+<body style="width:200px;background: yellowgreen;">
+    <center>
+        <div id="page1">
+            <img src="./Images/logoAnim.gif" id="hydrateImage">
+            </br>
+            <input type="checkbox" id="isWorking">Is it working?</input>
 
-    <script src="actions.js "></script>
+            <h1>Sites</h1>
+
+            <div id="allSites" class="content-card-container"></div>
+
+            </br>
+            <button id="adder">Add website</button>
+        </div>
+
+        <div id="page2" class="initial-page-2" style="display:none;">
+            <div id="mod">
+                <form id="siteConfigForm">
+                    <div style="border:solid;">
+                        <h2>Ban Days</h2>
+                        <input type="checkbox" id="allDayCheck">All Day?</input>
+                        </br>
+                        </br>
+                        <div class="weekDays-selector">
+                            <button id="weekday-sun" class="weekday" />
+                            <label for="weekday-sun">S</label>
+
+                            <button id="weekday-mon" class="weekday" />
+                            <label for="weekday-mon">M</label>
+
+                            <button id="weekday-tue" class="weekday" />
+                            <label for="weekday-tue">T</label>
+
+                            <button id="weekday-wed" class="weekday" />
+                            <label for="weekday-wed">W</label>
+
+                            <button id="weekday-thu" class="weekday" />
+                            <label for="weekday-thu">T</label>
+
+                            <button id="weekday-fri" class="weekday" />
+                            <label for="weekday-fri">F</label>
+
+                            <button id="weekday-sat" class="weekday" />
+                            <label for="weekday-sat">S</label>
+                        </div>
+                        <div id="weekDayTimePick">
+                            <input type="checkbox" id="weekdayIsActive" class="weekday" />
+                            </br>
+                            <input type="time" id="weekDayMinTime" name="minTime" min="00:00" max="24:00" required>
+                            </br>
+                            <input type="time" id="weekDayMaxime" name="maxTime" min="00:00" max="24:00" required>
+                        </div>
+                        </br>
+                    </div>
+
+                    </br>
+
+                    <div style="border:solid;">
+
+                        <label>Daily ban time:</label>
+                        <input type="checkbox" id="isAllDayCheckbox"></input>
+                        <label for="isAllDayCheckbox"></label>
+
+                        <div id="allDayTimeGroup">
+                            </br>
+                            <input type="time" id="allDayMinTime" name="minTime" min="00:00" max="24:00" required>
+                            </br>
+                            <input type="time" id="allDayMaxTime" name="maxTime" min="00:00" max="24:00" required>
+                        </div>
+                        </br>
+                        <select id="banActiveChoice" name="Ban or Active">
+                            <option value="ban">Ban</option>
+                            <option value="active">Active</option>
+                          </select>
+                        </br>
+                        </br>
+
+                    </div>
+                    </br>
+
+                    <input id="saveButton" type="submit" value="Save"></input>
+                    </br>
+                </form>
+            </div>
+
+            <button id="backButton">Back</button>
+        </div>
+
+    </center>
+
+    <script src="JS/fontAwesome.js "></script>
+    <script src="JS/chibi.min.js "></script>
+    <script src="base.js "></script>
+    <script src="popupScripts.js "></script>
 </body>
 
 </html>

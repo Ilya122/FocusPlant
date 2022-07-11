@@ -1,28 +1,39 @@
-const sites = { urls: [] };
+async function check() {
+    const sites = await GetSites();
 
-function check() {
+    console.log(sites);
     let currLoc = window.location.host;
-    console.log(currLoc);
-    chrome.storage.sync.get('sites', (data) => {
-        Object.assign(sites, data.sites);
 
-        for (let site of sites.urls) {
-            console.log(site);
+    if (!sites.IsWorking) {
+        return;
+    }
 
-            if (site === currLoc) {
-                // replace everything
-                fetch(chrome.runtime.getURL('/PleaseDontOpen.html')).then(r => r.text()).then(html => {
-                    document.body.innerHTML = html;
-                    document.body.style = "";
-                    notPassImg.src = chrome.runtime.getURL("Images/notpass.jpg");
+    for (let site of sites.Sites) {
+        console.log(site);
 
-                    // not using innerHTML as it would break js event listeners of the page
-                });
+        if (site.Url === currLoc) {
+            console.log(`Testing ${site.Url}`);
+
+            let isActiveBan = isBanned(site);
+            console.log(`Is Banned? ${isActiveBan}`);
+
+            if (!isActiveBan) {
+                console.log(`NOT Banning ${site.Url}`);
+
+                // We don't ban now
+                continue;
             }
+            console.log(`Banning ${site.Url}`);
+            // replace everything
+            fetch(chrome.runtime.getURL('/PleaseDontOpen.html')).then(r => r.text()).then(html => {
+                document.body.innerHTML = html;
+                document.body.style = "";
+                notPassImg.src = chrome.runtime.getURL("Images/notpass.jpg");
+                // not using innerHTML as it would break js event listeners of the page
+            });
         }
+    }
 
-    });
 }
-
 
 check();
