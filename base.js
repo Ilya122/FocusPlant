@@ -73,21 +73,35 @@ function isBanned(site) {
     let maxHour = dayConfig.EndHour;
     let maxMinutes = dayConfig.EndMinutes;
 
-    console.log(`Now Hour : ${now.getHours()}, Minutes: ${now.getMinutes()}`);
+    let nowHour = now.getHours();
+    let nowMinutes = now.getMinutes();
+
+    console.log(`Now Hour : ${nowHour}, Minutes: ${nowMinutes}`);
     console.log(`Is active in day? ${dayConfig.IsActive}`);
     if (!dayConfig.IsActive) {
         return;
     }
 
-    let isActiveBan = site.BanPermanent ||
-        ((now.getHours() >= minHour && now.getHours() <= maxHour) ||
-            (now.getMinutes() >= minMinutes && now.getMinutes() <= maxMinutes));
+    let isHourBanned = (nowHour > minHour && nowHour < maxHour);
+    let isMinutesBanned = (nowMinutes > minMinutes && nowMinutes < maxMinutes);
 
-    console.log(isActiveBan);
+    console.log(`Is Hour Banned? ${isHourBanned}, is Minute? ${isMinutesBanned}`);
+    let isBanActive = site.BanPermanent || isHourBanned;
+
+    if (site.BanPermanent) {
+        isBanActive = true;
+    } else if (isHourBanned) {
+        isBanActive = isBanActive && isMinutesBanned;
+    } else if (nowHour == minHour || nowHour == maxHour) {
+        isBanActive = isMinutesBanned;
+    }
+
+    console.log(isBanActive);
+
     if (site.AllowOrBan === 'ban' || site.AllowOrBan === 'Ban') {
-        return isActiveBan;
+        return isBanActive;
     } else {
-        return !isActiveBan;
+        return !isBanActive;
     }
 
 }
