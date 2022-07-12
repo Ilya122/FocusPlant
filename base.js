@@ -80,11 +80,11 @@ function isBanned(site) {
     }
 
     let isActiveBan = site.BanPermanent ||
-        ((now.getHours() >= minHour && now.getHours() <= maxHour) &&
+        ((now.getHours() >= minHour && now.getHours() <= maxHour) ||
             (now.getMinutes() >= minMinutes && now.getMinutes() <= maxMinutes));
 
     console.log(isActiveBan);
-    if (site.AllowOrBan === 'ban') {
+    if (site.AllowOrBan === 'ban' || site.AllowOrBan === 'Ban') {
         return isActiveBan;
     } else {
         return !isActiveBan;
