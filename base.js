@@ -91,7 +91,7 @@ function isBanned(site) {
     if (site.BanPermanent) {
         isBanActive = true;
     } else if (isHourBanned) {
-        isBanActive = isBanActive && isMinutesBanned;
+        isBanActive = isBanActive || isMinutesBanned;
     } else if (nowHour == minHour || nowHour == maxHour) {
         isBanActive = isMinutesBanned;
     }
