@@ -29,3 +29,23 @@ https://support.google.com/chrome_webstore/answer/2664769?hl=en
 
 בעברית:
 https://support.google.com/chrome_webstore/answer/2664769?hl=iw
+
+
+---
+
+# FocusPlant Roadmap
+
+- Add Group to individual website and apply one configuration to all websites in the group.  
+E.g: 
+- News: Ban all week
+- SocialMedia: Ban 10pm - 12pm, 13pm - 12am 
+
+- Preconfigure websites so people can import recommended settings.
+  - Based on Group (Import all group)
+
+- Allow access but limit with time.
+E.g: Enter Facebook.com
+Allow to be there for 3 minutes each 30 minutes.  
+Close tab if exceeds, resets only after 30 minutes.  
+
+- Export configuration.  
