@@ -43,9 +43,12 @@ E.g:
 - Preconfigure websites so people can import recommended settings.
   - Based on Group (Import all group)
 
-- Allow access but limit with time.
-E.g: Enter Facebook.com
-Allow to be there for 3 minutes each 30 minutes.  
-Close tab if exceeds, resets only after 30 minutes.  
+- Timer for website -
+    - Counter timer down (Allow for 3-4 minutes then ban)
+      E.g: Enter Facebook.com
+      Allow to be there for 3 minutes each 30 minutes.  
+      Close tab if exceeds, resets only after 30 minutes.  
+    - Counting timer up (Allow up to 30 minutes daily)
 
 - Export configuration.  
+
