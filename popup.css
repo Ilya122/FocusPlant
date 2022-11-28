@@ -17,32 +17,6 @@ body {
     background: rgb(66, 184, 221);
 }
 
-.animate_page1 {
-    animation: AnimationPageOne 0.5s ease;
-}
-
-@keyframes AnimationPageOne {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.animate_page2 {
-    animation: AnimationPageTwo 0.5s ease;
-}
-
-@keyframes AnimationPageTwo {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
 .weekDays-selector input {
     display: none!important;
 }
@@ -70,4 +44,15 @@ body {
     grid-auto-rows: auto;
     grid-column-gap: 3px;
     grid-row-gap: 5px;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(10px);
+    transition: all 0.2s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
 }

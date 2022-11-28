@@ -3,12 +3,11 @@
 <head>
     <title>Water Popup</title>
     <link rel="stylesheet" href="popup.css">
-
 </head>
 
 <body style="width:200px;background: yellowgreen;">
     <center>
-        <div id="page1">
+        <div id="page1" class="hidden">
             <img src="./Images/logoAnim.gif" id="hydrateImage">
             </br>
             <input type="checkbox" id="isWorking">Is it working?</input>
@@ -21,7 +20,7 @@
             <button id="adder">Add website</button>
         </div>
 
-        <div id="page2" class="initial-page-2" style="display:none;">
+        <div id="page2" class="initial-page-2 hidden" style="display:none;">
             <div id="mod">
                 <form id="siteConfigForm">
                     <div style="border:solid;">
@@ -100,6 +99,7 @@
     <script src="JS/chibi.min.js "></script>
     <script src="base.js "></script>
     <script src="popupScripts.js "></script>
+    <script src="popUpAnimationScript.js"></script>
 </body>
 
 </html>
