@@ -1,3 +1,15 @@
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+
+function RollFileName() {
+    let min = 1;
+    let max = 4;
+    let randomNumber = getRandom(min, max);
+    return `NoPass${randomNumber}.png`;
+}
+
 async function check() {
     const sites = await GetSites();
 
@@ -24,11 +36,15 @@ async function check() {
                 continue;
             }
             console.log(`Banning ${site.Url}`);
+
             // replace everything
             fetch(chrome.runtime.getURL('/PleaseDontOpen.html')).then(r => r.text()).then(html => {
                 document.body.innerHTML = html;
                 document.body.style = "";
-                notPassImg.src = chrome.runtime.getURL("Images/notpass.jpg");
+
+                let file = RollFileName();
+                console.log(`file name is ${file}`);
+                notPassImg.src = chrome.runtime.getURL(`Images/${file}`);
                 // not using innerHTML as it would break js event listeners of the page
             });
         }

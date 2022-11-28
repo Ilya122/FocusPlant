@@ -37,7 +37,9 @@
         "resources": [
             "popup.html",
             "PleaseDontOpen.html",
-            "Images/notpass.jpg",
+            "Images/NoPass1.png",
+            "Images/NoPass2.png",
+            "Images/NoPass3.png",
             "Images/iconConfigure.png",
             "Images/iconRemove.png",
             "Images/logoAnim.gif"
