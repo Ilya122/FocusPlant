@@ -24,6 +24,12 @@ And more to come!
 
 # How to install a chrome extension
 
+## Downloading the code
+Press Code in the top right corner and download as zip
+![image](https://user-images.githubusercontent.com/4838211/204374705-5d9237f0-9a65-4f4f-858c-70008de04124.png)
+
+## Install chrome extension
+
 English: 
 https://support.google.com/chrome_webstore/answer/2664769?hl=en
 
