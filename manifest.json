@@ -42,7 +42,8 @@
             "Images/NoPass3.png",
             "Images/iconConfigure.png",
             "Images/iconRemove.png",
-            "Images/logoAnim.gif"
+            "Images/logoAnim.gif",
+            "Images/PausedLogo.png"
         ],
         "matches": [
             "https://*/*"

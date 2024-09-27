@@ -1,5 +1,5 @@
 const allSitesElement = allSites;
-const isWorkingCheckBox = isWorking;
+const isAppActiveCheckBox = isAppActive;
 
 adder.addEventListener("click", addwebsite);
 backButton.addEventListener('click', TransitionToMainPage);
@@ -38,8 +38,6 @@ function transitionToModifyPage(siteConfig) {
         let weekdayButton = document.getElementById(currentWeekday);
 
         weekdayButton.onclick = (event) => {
-            weekdayIsActive.checked = siteConfig.Time.Range[correctIndex].IsActive;
-
             ChangeTimeElementTime(weekDayMinTime, time.StartHour, time.StartMinutes);
             ChangeTimeElementTime(weekDayMaxime, time.EndHour, time.EndMinutes);
 
@@ -61,10 +59,6 @@ function transitionToModifyPage(siteConfig) {
                 siteConfig.Time.Range[correctIndex].EndMinutes = parseInt(minutes, 10);
             };
 
-            weekdayIsActive.onclick = function() {
-                siteConfig.Time.Range[correctIndex].IsActive = weekdayIsActive.checked;
-            };
-
             event.preventDefault();
         }
 
@@ -75,22 +69,6 @@ function transitionToModifyPage(siteConfig) {
     banActiveChoice.value = siteConfig.AllowOrBan;
     banActiveChoice.addEventListener('change', () => {
         siteConfig.AllowOrBan = banActiveChoice.value;
-    });
-
-    isAllDayCheckbox.checked = siteConfig.DailyTime.IsActive;
-    if (siteConfig.DailyTime.IsActive) {
-        allDayTimeGroup.style.display = 'block';
-    } else {
-        allDayTimeGroup.style.display = 'none';
-    }
-
-    isAllDayCheckbox.addEventListener('change', function() {
-        siteConfig.DailyTime.IsActive = this.checked;
-        if (siteConfig.DailyTime.IsActive) {
-            allDayTimeGroup.style.display = 'block';
-        } else {
-            allDayTimeGroup.style.display = 'none';
-        }
     });
 }
 
@@ -167,7 +145,11 @@ chrome.storage.sync.get('sites', (data) => {
     window.sites.Sites.forEach(siteConfig => {
         CreateLIElement(siteConfig);
     });
-    isWorkingCheckBox.checked = window.sites.IsWorking;
+    isAppActiveCheckBox.checked = window.sites.IsWorking;
+    if(!isAppActiveCheckBox.checked){
+        hydrateImage.src = 'Images/PausedLogo.png';
+    }
+    
 
 });
 
@@ -199,9 +181,15 @@ function OnWorkingChecked(checked) {
     window.sites.IsWorking = checked;
     let sites = window.sites;
     chrome.storage.sync.set({ sites });
+
+    if(checked){
+        hydrateImage.src = 'Images/logoAnim.gif';
+    }else{
+        hydrateImage.src = 'Images/PausedLogo.png';
+    }
 }
 
-isWorkingCheckBox.addEventListener('change', function() {
+isAppActiveCheckBox.addEventListener('change', function() {
     OnWorkingChecked(this.checked);
 });
 

@@ -1,3 +1,10 @@
+class Category {
+    constructor() {
+        this.Name = '';
+        
+    }
+}
+
 class SitesConfiguration {
     constructor() {
         this.Sites = []; // SiteConfiguration
@@ -34,13 +41,12 @@ class BanTime {
 // Time marked as 00 - 24 format
 // Day is marked from 0-6, 0 is sunday.
 class HourRange {
-    constructor(startHour, startMinutes, endHour, endMinutes, day, isActive = true) {
+    constructor(startHour, startMinutes, endHour, endMinutes, day) {
         this.StartHour = startHour;
         this.StartMinutes = startMinutes;
         this.EndHour = endHour;
         this.EndMinutes = endMinutes;
         this.Day = day;
-        this.IsActive = isActive;
     }
 }
 
@@ -77,10 +83,6 @@ function isBanned(site) {
     let nowMinutes = now.getMinutes();
 
     console.log(`Now Hour : ${nowHour}, Minutes: ${nowMinutes}`);
-    console.log(`Is active in day? ${dayConfig.IsActive}`);
-    if (!dayConfig.IsActive) {
-        return;
-    }
 
     let isHourBanned = (nowHour > minHour && nowHour < maxHour);
     let isMinutesBanned = (nowMinutes > minMinutes && nowMinutes < maxMinutes);
