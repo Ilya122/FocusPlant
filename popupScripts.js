@@ -18,13 +18,34 @@ function transitionToModifyPage(siteConfig) {
     $("#page1").hide();
     $("#page2").show();
 
-    let allDayCheck = document.getElementById('allDayCheck');
-    let allDayMinTime = document.getElementById('allDayMinTime');
-    let allDayMaxTime = document.getElementById('allDayMaxTime');
-    allDayCheck.checked = siteConfig.BanPermanent;
-    console.log('wth');
-    console.log(siteConfig);
+    let banAllTimeCheck = $("#banAllTimeCheck");
+    let allDayMinTime = $('allDayMinTime');
+    let allDayMaxTime = $('allDayMaxTime');
+    banAllTimeCheck.checked(siteConfig.BanAllTime);
 
+    if (banAllTimeCheck.checked) {
+        $("#weekDaysDayPicker").hide();
+        $("weekDayTimePick").hide();
+    } else {
+        $("#weekDaysDayPicker").show();
+        $("weekDayTimePick").show();
+    }
+
+    banAllTimeCheck.on('click', function () {
+
+        siteConfig.BanAllTime =  this.checked;
+
+        if(this.checked) {
+            $("#weekDaysDayPicker").hide();
+            $("weekDayTimePick").hide();
+        }else{
+            $("#weekDaysDayPicker").show();
+            $("weekDayTimePick").show();  
+        }
+
+        SaveSites();
+
+    });
     // Change time values 
     ChangeTimeElementTime(allDayMinTime, siteConfig.DailyTime.StartHour, siteConfig.DailyTime.StartMinutes)
     ChangeTimeElementTime(allDayMaxTime, siteConfig.DailyTime.EndHour, siteConfig.DailyTime.EndMinutes)

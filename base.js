@@ -17,7 +17,7 @@ class SiteConfiguration {
     constructor(url) {
         this.Url = url;
         this.AllowOrBan = 'ban'; //ban or active
-        this.BanPermanent = false; // Default, if to ban it all week.
+        this.BanAllTime = false; // Default, if to ban it all week.
         // List of ban/active hours, type of BanTime
         this.Time = new BanTime();
 
@@ -88,9 +88,9 @@ function isBanned(site) {
     let isMinutesBanned = (nowMinutes > minMinutes && nowMinutes < maxMinutes);
 
     console.log(`Is Hour Banned? ${isHourBanned}, is Minute? ${isMinutesBanned}`);
-    let isBanActive = site.BanPermanent || isHourBanned;
+    let isBanActive = site.BanAllTime || isHourBanned;
 
-    if (site.BanPermanent) {
+    if (site.BanAllTime) {
         isBanActive = true;
     } else if (isHourBanned) {
         isBanActive = isBanActive || isMinutesBanned;
